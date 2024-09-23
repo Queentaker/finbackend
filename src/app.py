@@ -12,18 +12,19 @@ Compress(app)
 logger = logging.getLogger("Finan")
 logger.setLevel(logging.DEBUG)
 
+
 @app.route("/")
 def index():
     return {"message": "Hello World!"}
 
-data = pd.DataFrame({
-    'x': [1, 2, 3],
-    'y': [4, 9, 6]
-})
+
+data = pd.DataFrame({"x": [1, 2, 3], "y": [4, 9, 6]})
+
 
 @app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"status": "up"}), 200
+
 
 # New API route for retrieving the stored x and y values
 @app.route("/data", methods=["GET"])
